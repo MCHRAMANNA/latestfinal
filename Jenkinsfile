@@ -49,6 +49,7 @@ pipeline {
      }
       stage ('Deploy docker') {
           steps {
+          sh 'ls -a'
           sh 'sudo docker build -t tomcat_image .'
           sh 'sudo docker run -p 8080:8080 --name tomcat_container -d tomcat_image'
           
