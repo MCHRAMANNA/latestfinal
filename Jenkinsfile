@@ -34,6 +34,7 @@ pipeline {
       stage ('scm checkout') {
           steps {
           git credentialsId: 'github_pat', url: 'https://github.com/MCHRAMANNA/latestfinal.git/'
+          git checkout test_tomcat
      }
    }  
  
