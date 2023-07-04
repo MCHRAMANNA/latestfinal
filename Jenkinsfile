@@ -33,8 +33,11 @@ pipeline {
  
       stage ('scm checkout') {
           steps {
-          git credentialsId: 'github_pat', url: 'https://github.com/MCHRAMANNA/latestfinal.git/'
-          git checkout test_tomcat
+          checkout([
+            $class: 'GitSCM',
+            branches: [[name: 'test_tomcat']],
+            userRemoteConfigs: [[credentialsId: 'github_pat', url: 'https://github.com/MCHRAMANNA/latestfinal.git']]
+          ])
      }
    }  
  
